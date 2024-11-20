@@ -46,22 +46,26 @@ function showReviewTotal(value: number, reviewer: string, isLoyalty: boolean) {
 
 showReviewTotal(reviews.length, reviews[0].name, reviews[0].loyaltyUser);
 
-// Object Types
-// In this scrim, based on what we just learnt, can you change userName to firstName, then
-// add an age and lastName to the 'you' Object, making sure to account for it in the Specialised
-// Object for defining its structure.
+// Array Types
+// Can you add a stayedAt property to the you Object, that contains places you
+// have stayed as strings, then add the correct key with assigned type to the
+// existing Object Type?
 
 //`: {}` = `: object`
+//stayedAt: (string | number)[]; --> stayedAt:
+//["florida-home", "oman-flat", "tokyo-bungalow", 23]
 const you: {
   firstName: string;
   lastName: string;
   age: number;
   isReturning: boolean;
+  stayedAt: string[];
 } = {
   firstName: "Bobby",
   lastName: "Bobberson",
   age: 40,
   isReturning: true,
+  stayedAt: ["florida-home", "oman-flat", "tokyo-bungalow"],
 };
 
 function populateUser(isReturning: boolean, firstName: string) {
