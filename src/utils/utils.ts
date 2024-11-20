@@ -1,5 +1,5 @@
-import { Loyalty, Permissions } from "./enums";
-import { Review } from "./interfaces";
+import { Loyalty, Permissions } from "./enums.js";
+import { Review } from "./interfaces.js";
 
 const returningUserDisplay = document.querySelector(
   "#returning-user"

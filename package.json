@@ -1,13 +1,15 @@
 {
-  "name": "project",
-  "dependencies": {},
-  "devDependencies": {
-    "webpack": "^2.0",
-    "ts-loader": "*",
-    "typescript": "*"
-  },
+  "name": "cs20240232_fto2407_groupb_danevanniekerk_djs09",
+  "version": "1.0.0",
+  "description": "Are you ready to get stuck into some Typescript? For this challenge, you are required to code along with the lecturer from this lesson:  Couch Surfing Website",
+  "main": "index.js",
   "scripts": {
-    "build": "webpack",
-    "watch": "webpack -w"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "typescript": "^5.6.3"
   }
 }

@@ -1,6 +1,6 @@
-import { ReactiveElement } from "lit";
-import { Loyalty } from "./enums";
-import { Country, Price } from "./types";
+// import { ReactiveElement } from "lit";
+import { Loyalty } from "./enums.js";
+import { Country, Price } from "./types.js";
 
 interface Review {
   name: string;

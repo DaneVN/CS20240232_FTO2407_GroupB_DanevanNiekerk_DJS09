@@ -3,10 +3,10 @@ import {
   populateUser,
   showDetails,
   getTopTwoReviews,
-} from "../utils/utils.js";
-import { Permissions, Loyalty } from "../utils/enums.js";
-import { Review, Property } from "../utils/interfaces.js";
-import MainProperty from "../utils/classes.js";
+} from "./utils/utils.js";
+import { Permissions, Loyalty } from "./utils/enums.js";
+import { Review, Property } from "./utils/interfaces.js";
+import MainProperty from "./utils/classes.js";
 
 const propertyContainer = document.querySelector(
   ".properties"
