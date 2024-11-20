@@ -6,7 +6,7 @@ import {
 } from "../utils/utils.js";
 import { Permissions, Loyalty } from "../utils/enums.js";
 import { Price, Country } from "../utils/types.js";
-import { Review } from "../utils/interfaces.js";
+import Review from "../utils/interfaces.js";
 
 const propertyContainer = document.querySelector(
   ".properties"
@@ -122,11 +122,6 @@ for (let i = 0; i < properties.length; i++) {
   showDetails(you.permissions, card, properties[i].pricePerNight);
 }
 
-// Interfaces
-// 1. Based on what we have learnt in this lesson, and what we discussed in the previous one,
-// please get rid of the uncessary code in this project and replace it with the Review interface
-// 2. Move the interface to its own file for the next lesson
-
 let count = 0;
 function addReviews(array: Review[]): void {
   if (!count) {
@@ -152,3 +147,22 @@ footer.innerHTML =
   " " +
   currentLocation[2] +
   "°";
+
+// Classes
+// As with other JavaScript language features, TypeScript adds type
+// annotations and other syntax to allow you to express relationships
+// between classes and other types.
+// 1. Add a Class that will let us create a main image, it should allow us to
+// store the reviews.
+
+//Classes
+class MainProperty {
+  src: string;
+  title: string;
+  reviews: Review[];
+  constructor(src, title, reviews) {
+    this.src = src;
+    this.title = title;
+    this.reviews = reviews;
+  }
+}

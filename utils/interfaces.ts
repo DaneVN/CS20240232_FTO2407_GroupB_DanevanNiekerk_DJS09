@@ -8,4 +8,4 @@ interface Review {
   date: string;
 }
 
-export { Review };
+export default Review;
