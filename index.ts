@@ -6,25 +6,9 @@ const propertyContainer = document.querySelector(
 ) as HTMLDivElement;
 const footer = document.querySelector(".footer") as HTMLDivElement;
 
-// Any Type
-// 1. Add a description property to Omars review, and give it a value.
-// 2. Next try addressing what TypeScript does not like.
-// 3. Now, imagine we DON'T know what kind of review object we are going to
-// get next.
+let isLoggedIn: boolean;
 
 // Reviews
-/* ({
-  name: string;
-  stars: number;
-  loyaltyUser: Loyalty
-  date: string;   
-} | {
-  name: string;
-  stars: number;
-  loyaltyUser: Loyalty
-  date: string;
-  description: string;
-})*/
 const reviews: any[] = [
   {
     name: "Sheia",
@@ -116,6 +100,27 @@ const properties: {
 showReviewTotal(reviews.length, reviews[0].name, reviews[0].loyaltyUser);
 populateUser(you.isReturning, you.firstName);
 
+// Union Types Challenge
+// 1. Fix the function to show the price per night for each property card only
+// if isLoggedIn is true, or the you object has Permissions. (all permissions should work)
+// 2. See what happens when a null object to be passed to the you objects permissions.
+
+let authorityStatus: any;
+
+isLoggedIn = false;
+
+function showDetails(
+  authorityStatus: boolean | Permissions,
+  element: HTMLDivElement,
+  price: number
+) {
+  if (authorityStatus) {
+    const priceDisplay = document.createElement("div");
+    priceDisplay.innerHTML = price.toString() + "/night";
+    element.appendChild(priceDisplay);
+  }
+}
+
 // Add the properties
 for (let i = 0; i < properties.length; i++) {
   const card = document.createElement("div");
@@ -125,6 +130,7 @@ for (let i = 0; i < properties.length; i++) {
   image.setAttribute("src", properties[i].image);
   card.appendChild(image);
   propertyContainer.appendChild(card);
+  showDetails(authorityStatus, card, properties[i].pricePerNight);
 }
 
 // use your location, your current time, and the current temperature of your
