@@ -6,20 +6,26 @@ const propertyContainer = document.querySelector(
 ) as HTMLDivElement;
 const footer = document.querySelector(".footer") as HTMLDivElement;
 
-// Enum Types mini-challenge
-// Replace the value of loyaltyUser to a GOLD_USER, SILVER_USER or BRONZE_USER, making sure to
-// use what we learnt about Enums in the previous lesson. Make Sheia GOLD, Andrzej BRONZE
-// and Omar SILVER.
-// 2. export the enum
-// 3. Fix the function in the utils to show Sheias star as she is a GOLD_USER.
+// Any Type
+// 1. Add a description property to Omars review, and give it a value.
+// 2. Next try addressing what TypeScript does not like.
+// 3. Now, imagine we DON'T know what kind of review object we are going to
+// get next.
 
 // Reviews
-const reviews: {
+/* ({
   name: string;
   stars: number;
-  loyaltyUser: Loyalty;
+  loyaltyUser: Loyalty
+  date: string;   
+} | {
+  name: string;
+  stars: number;
+  loyaltyUser: Loyalty
   date: string;
-}[] = [
+  description: string;
+})*/
+const reviews: any[] = [
   {
     name: "Sheia",
     stars: 5,
@@ -37,11 +43,11 @@ const reviews: {
     stars: 4,
     loyaltyUser: Loyalty.SILVER_USER,
     date: "27-03-2021",
+    description: "Great hosts, location was a bit further than said",
   },
 ];
 
 // User
-
 const you = {
   firstName: "Bobby",
   lastName: "Brown",
