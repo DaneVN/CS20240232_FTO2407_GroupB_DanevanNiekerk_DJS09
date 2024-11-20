@@ -52,7 +52,30 @@ const you = {
 };
 
 //Properties
+
+// Wrapping up our Dashboard
+// add another property card. The Property should have:
+// 1 x picture of a 'Malaysian Hotel' called 'Malia Hotel'
+// It should cost 35/night
+// It's location should be 'Room 4, Malia , Malaysia, 45334'
+// The contact email should be 'lee34@gmail.com'
+// The phone number for the property should be +60349822083
+// It should not be available
+
 const properties: Property[] = [
+  {
+    image: "images/malaysin-property.jpg",
+    title: "Malia Hotel",
+    pricePerNight: 35,
+    location: {
+      firstAddressLine: "Room 4",
+      cityOrTown: "Malia",
+      postcode: 45334,
+      country: "Malaysia",
+    },
+    contact: [+60349822083, "lee34@gmail.com"],
+    isAvailable: false,
+  },
   {
     image: "images/colombia-property.jpg",
     title: "Colombian Shack",
@@ -135,10 +158,6 @@ footer.innerHTML =
   " " +
   currentLocation[2] +
   "°";
-
-// Wrapping up our Dashboard
-// 1. Create All the other interfaces you think are needed for this board
-// 2. Using the Class, visually show the main Image above the review button.
 
 //Classes
 class MainProperty {

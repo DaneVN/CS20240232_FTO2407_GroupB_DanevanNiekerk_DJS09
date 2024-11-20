@@ -1,6 +1,6 @@
 import { ReactiveElement } from "lit";
 import { Loyalty } from "./enums";
-import { Price } from "./types";
+import { Country, Price } from "./types";
 
 interface Review {
   name: string;
@@ -12,12 +12,12 @@ interface Review {
 export interface Property {
   image: string;
   title: string;
-  pricePerNight: number;
+  pricePerNight: Price;
   location: {
     firstAddressLine: string;
     cityOrTown: string;
     postcode: number | string;
-    country: string;
+    country: Country;
   };
   contact: [number, string];
   isAvailable: boolean;
