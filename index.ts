@@ -1,50 +1,51 @@
-import { showReviewTotal, populateUser } from "./utils.jsx";
+import { showReviewTotal, populateUser } from "./utils/utils.js";
+import { Permissions, Loyalty } from "./utils/enums.js";
+
 const propertyContainer = document.querySelector(
   ".properties"
 ) as HTMLDivElement;
 const footer = document.querySelector(".footer") as HTMLDivElement;
 
+// Enum Types mini-challenge
+// Replace the value of loyaltyUser to a GOLD_USER, SILVER_USER or BRONZE_USER, making sure to
+// use what we learnt about Enums in the previous lesson. Make Sheia GOLD, Andrzej BRONZE
+// and Omar SILVER.
+// 2. export the enum
+// 3. Fix the function in the utils to show Sheias star as she is a GOLD_USER.
+
 // Reviews
 const reviews: {
   name: string;
   stars: number;
-  loyaltyUser: boolean;
+  loyaltyUser: Loyalty;
   date: string;
 }[] = [
   {
     name: "Sheia",
     stars: 5,
-    loyaltyUser: true,
+    loyaltyUser: Loyalty.GOLD_USER,
     date: "01-04-2021",
   },
   {
     name: "Andrzej",
     stars: 3,
-    loyaltyUser: false,
+    loyaltyUser: Loyalty.BRONZE_USER,
     date: "28-03-2021",
   },
   {
     name: "Omar",
     stars: 4,
-    loyaltyUser: true,
+    loyaltyUser: Loyalty.SILVER_USER,
     date: "27-03-2021",
   },
 ];
 
 // User
-const ADMIN = "admin";
-const READ_ONLY = "read-only";
-
-//Enums
-enum Permissions {
-  ADMIN,
-  READ_ONLY,
-}
 
 const you = {
   firstName: "Bobby",
   lastName: "Brown",
-  permissions: ADMIN, // has type of `Permissions`
+  permissions: Permissions.ADMIN, // has type of `Permissions`
   isReturning: true,
   age: 35,
   stayedAt: ["florida-home", "oman-flat", "tokyo-bungalow"],
