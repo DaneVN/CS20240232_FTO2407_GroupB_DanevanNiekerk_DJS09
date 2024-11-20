@@ -1,18 +1,16 @@
-import { join } from "lit-html/directives/join.js";
-
-const returningUserDisplay = document.querySelector(
-  "#returning-user"
-) as HTMLSpanElement;
-const firstNameDisplay = document.querySelector("#user") as HTMLSpanElement;
-const reviewTotalDisplay = document.querySelector(
-  "#reviews"
-) as HTMLHeadingElement;
+import { showReviewTotal, populateUser } from "./utils.jsx";
 
 //redundant to assign `age: number`, rather assign type to valiables that
 // don't have a value yet, like parameters or `let age;`
 const age = 23;
 
-const reviews = [
+// Reviews
+const reviews: {
+  name: string;
+  stars: number;
+  loyaltyUser: boolean;
+  date: string;
+}[] = [
   {
     name: "Sheia",
     stars: 5,
@@ -33,24 +31,7 @@ const reviews = [
   },
 ];
 
-function showReviewTotal(value: number, reviewer: string, isLoyalty: boolean) {
-  const iconDisplay = isLoyalty ? "⭐" : "";
-  reviewTotalDisplay.innerHTML =
-    "review total " +
-    value.toString() +
-    "| last reviewed by " +
-    reviewer +
-    " " +
-    iconDisplay;
-}
-
-showReviewTotal(reviews.length, reviews[0].name, reviews[0].loyaltyUser);
-
-// Array Types
-// Can you add a stayedAt property to the you Object, that contains places you
-// have stayed as strings, then add the correct key with assigned type to the
-// existing Object Type?
-
+// User
 //`: {}` = `: object`
 //stayedAt: (string | number)[]; --> stayedAt:
 //["florida-home", "oman-flat", "tokyo-bungalow", 23]
@@ -68,11 +49,39 @@ const you: {
   stayedAt: ["florida-home", "oman-flat", "tokyo-bungalow"],
 };
 
-function populateUser(isReturning: boolean, firstName: string) {
-  if (isReturning) {
-    returningUserDisplay.innerHTML = "back";
-  }
-  firstNameDisplay.innerHTML = firstName;
-}
+// Object Types Challenge
+// Based on what we discussed we need to make up our Property Objects and array,
+// can you create that array, making sure to assign the correct Types?
 
+//Properties
+const properties: {
+  image: string;
+  title: string;
+  couchSurfPricePerNight: number;
+  location: {
+    firstLineOfAddress: string;
+    townOrCity: string;
+    postcode: string;
+    country: string;
+  };
+  contactDetails: string;
+  availible: boolean;
+}[] = [
+  {
+    image: "string",
+    title: "string",
+    couchSurfPricePerNight: 54,
+    location: {
+      firstLineOfAddress: "string",
+      townOrCity: "string",
+      postcode: "string",
+      country: "string",
+    },
+    contactDetails: "string",
+    availible: false,
+  },
+];
+
+// Functions
+showReviewTotal(reviews.length, reviews[0].name, reviews[0].loyaltyUser);
 populateUser(you.isReturning, you.firstName);
