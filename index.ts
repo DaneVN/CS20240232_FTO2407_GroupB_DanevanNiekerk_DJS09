@@ -3,6 +3,7 @@ import { showReviewTotal, populateUser } from "./utils.jsx";
 const propertyContainer = document.querySelector(
   ".properties"
 ) as HTMLDivElement;
+const footer = document.querySelector(".footer") as HTMLDivElement;
 
 //redundant to assign `age: number`, rather assign type to valiables that
 // don't have a value yet, like parameters or `let age;`
@@ -52,10 +53,6 @@ const you: {
   isReturning: true,
   stayedAt: ["florida-home", "oman-flat", "tokyo-bungalow"],
 };
-
-// Object Types Challenge
-// Based on what we discussed we need to make up our Property Objects and array,
-// can you create that array, making sure to assign the correct Types?
 
 //Properties
 const properties: {
@@ -126,3 +123,15 @@ for (let i = 0; i < properties.length; i++) {
   card.appendChild(image);
   propertyContainer.appendChild(card);
 }
+
+// Tuples challenge
+// 1. Add an array to the variable of currentLocation I have added. This array
+// must have your current location, time, and degrees celcius of your location
+// NOTE: make sure to make this a Tuple, to only allow those types in that
+// structure.
+// 2. Add this visually to a footer on your site
+
+// use your location, your current time, and the current temperature of your
+// location
+let currentLocation: [string, string, number] = ["Hawaii", "06:00", 30];
+footer.innerHTML = currentLocation.join(" ");
