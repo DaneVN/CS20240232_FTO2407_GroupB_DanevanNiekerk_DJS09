@@ -6,6 +6,7 @@ import {
 } from "../utils/utils.js";
 import { Permissions, Loyalty } from "../utils/enums.js";
 import { Price, Country } from "../utils/types.js";
+import { Review } from "../utils/interfaces.js";
 
 const propertyContainer = document.querySelector(
   ".properties"
@@ -121,29 +122,13 @@ for (let i = 0; i < properties.length; i++) {
   showDetails(you.permissions, card, properties[i].pricePerNight);
 }
 
-// Function Types challenge - Pass the code review
-// 1. Add types to the function that returns the top 2 reviews specifically based on
-// descending order. Make sure to use what you learned in the previous lessons.
-// 2. Add types to the function in this file that shows the reviews when we click the button
-
-//Broken code
-
-type Review = {
-  name: string;
-  stars: number;
-  loyaltyUser: Loyalty;
-  date: string;
-};
+// Interfaces
+// 1. Based on what we have learnt in this lesson, and what we discussed in the previous one,
+// please get rid of the uncessary code in this project and replace it with the Review interface
+// 2. Move the interface to its own file for the next lesson
 
 let count = 0;
-function addReviews(
-  array: {
-    name: string;
-    stars: number;
-    loyaltyUser: Loyalty;
-    date: string;
-  }[]
-): void {
+function addReviews(array: Review[]): void {
   if (!count) {
     count++;
     const topTwo = getTopTwoReviews(array);
