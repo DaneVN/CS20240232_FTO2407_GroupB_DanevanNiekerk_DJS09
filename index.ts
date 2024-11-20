@@ -1,5 +1,6 @@
 import { showReviewTotal, populateUser } from "./utils/utils.js";
 import { Permissions, Loyalty } from "./utils/enums.js";
+import { Price, Country } from "./utils/types.js";
 
 const propertyContainer = document.querySelector(
   ".properties"
@@ -45,12 +46,12 @@ const you = {
 const properties: {
   image: string;
   title: string;
-  pricePerNight: number;
+  pricePerNight: Price;
   location: {
     firstAddressLine: string;
     cityOrTown: string;
     postcode: number;
-    country: string;
+    country: Country;
   };
   contact: [number, string];
   isAvailable: boolean;
@@ -58,7 +59,7 @@ const properties: {
   {
     image: "images/colombia-property.jpg",
     title: "Colombian Shack",
-    pricePerNight: 45,
+    pricePerNight: 48,
     location: {
       firstAddressLine: "shack 37",
       cityOrTown: "Bogota",
@@ -71,7 +72,7 @@ const properties: {
   {
     image: "images/poland-property.jpg",
     title: "Polish Cottage",
-    pricePerNight: 34,
+    pricePerNight: 30,
     location: {
       firstAddressLine: "no 23",
       cityOrTown: "Gdansk",
@@ -84,7 +85,7 @@ const properties: {
   {
     image: "images/london-property.jpg",
     title: "London Flat",
-    pricePerNight: 23,
+    pricePerNight: 25,
     location: {
       firstAddressLine: "flat 15",
       cityOrTown: "London",
@@ -99,11 +100,6 @@ const properties: {
 // Functions
 showReviewTotal(reviews.length, reviews[0].name, reviews[0].loyaltyUser);
 populateUser(you.isReturning, you.firstName);
-
-// Union Types Challenge
-// 1. Fix the function to show the price per night for each property card only
-// if isLoggedIn is true, or the you object has Permissions. (all permissions should work)
-// 2. See what happens when a null object to be passed to the you objects permissions.
 
 let authorityStatus: any;
 
