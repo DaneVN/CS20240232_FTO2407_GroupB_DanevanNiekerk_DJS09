@@ -1,5 +1,9 @@
 import { showReviewTotal, populateUser } from "./utils.jsx";
 
+const propertyContainer = document.querySelector(
+  ".properties"
+) as HTMLDivElement;
+
 //redundant to assign `age: number`, rather assign type to valiables that
 // don't have a value yet, like parameters or `let age;`
 const age = 23;
@@ -57,31 +61,68 @@ const you: {
 const properties: {
   image: string;
   title: string;
-  couchSurfPricePerNight: number;
+  pricePerNight: number;
   location: {
-    firstLineOfAddress: string;
-    townOrCity: string;
-    postcode: string;
+    firstAddressLine: string;
+    cityOrTown: string;
+    postcode: number;
     country: string;
   };
-  contactDetails: string;
-  availible: boolean;
+  contact: [number, string];
+  isAvailable: boolean;
 }[] = [
   {
-    image: "string",
-    title: "string",
-    couchSurfPricePerNight: 54,
+    image: "images/colombia-property.jpg",
+    title: "Colombian Shack",
+    pricePerNight: 45,
     location: {
-      firstLineOfAddress: "string",
-      townOrCity: "string",
-      postcode: "string",
-      country: "string",
+      firstAddressLine: "shack 37",
+      cityOrTown: "Bogota",
+      postcode: 45632,
+      country: "Colombia",
     },
-    contactDetails: "string",
-    availible: false,
+    contact: [+1123495082908, "marywinkle@gmail.com"],
+    isAvailable: true,
+  },
+  {
+    image: "images/poland-property.jpg",
+    title: "Polish Cottage",
+    pricePerNight: 34,
+    location: {
+      firstAddressLine: "no 23",
+      cityOrTown: "Gdansk",
+      postcode: 343903,
+      country: "Poland",
+    },
+    contact: [+1123495082908, "garydavis@hotmail.com"],
+    isAvailable: false,
+  },
+  {
+    image: "images/london-property.jpg",
+    title: "London Flat",
+    pricePerNight: 23,
+    location: {
+      firstAddressLine: "flat 15",
+      cityOrTown: "London",
+      postcode: 35433,
+      country: "United Kingdom",
+    },
+    contact: [+1123495082908, "andyluger@aol.com"],
+    isAvailable: true,
   },
 ];
 
 // Functions
 showReviewTotal(reviews.length, reviews[0].name, reviews[0].loyaltyUser);
 populateUser(you.isReturning, you.firstName);
+
+// Add the properties
+for (let i = 0; i < properties.length; i++) {
+  const card = document.createElement("div");
+  card.classList.add("card");
+  card.innerHTML = properties[i].title;
+  const image = document.createElement("img");
+  image.setAttribute("src", properties[i].image);
+  card.appendChild(image);
+  propertyContainer.appendChild(card);
+}
