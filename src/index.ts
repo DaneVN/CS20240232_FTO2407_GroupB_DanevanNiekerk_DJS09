@@ -1,11 +1,19 @@
-import { showReviewTotal, populateUser, showDetails } from "./utils/utils.js";
-import { Permissions, Loyalty } from "./utils/enums.js";
-import { Price, Country } from "./utils/types.js";
+import {
+  showReviewTotal,
+  populateUser,
+  showDetails,
+  getTopTwoReviews,
+} from "../utils/utils.js";
+import { Permissions, Loyalty } from "../utils/enums.js";
+import { Price, Country } from "../utils/types.js";
 
 const propertyContainer = document.querySelector(
   ".properties"
 ) as HTMLDivElement;
 const footer = document.querySelector(".footer") as HTMLDivElement;
+const reviewContainer = document.querySelector(".reviews") as HTMLDivElement;
+const container = document.querySelector(".container") as HTMLDivElement;
+const button = document.querySelector("button") as HTMLButtonElement;
 
 let isLoggedIn: boolean;
 
@@ -113,6 +121,49 @@ for (let i = 0; i < properties.length; i++) {
   showDetails(you.permissions, card, properties[i].pricePerNight);
 }
 
-// location
-let currentLocation: [string, string, number] = ["Hawaii", "06:00", 30];
-footer.innerHTML = currentLocation.join(" ");
+// Function Types challenge - Pass the code review
+// 1. Add types to the function that returns the top 2 reviews specifically based on
+// descending order. Make sure to use what you learned in the previous lessons.
+// 2. Add types to the function in this file that shows the reviews when we click the button
+
+//Broken code
+
+type Review = {
+  name: string;
+  stars: number;
+  loyaltyUser: Loyalty;
+  date: string;
+};
+
+let count = 0;
+function addReviews(
+  array: {
+    name: string;
+    stars: number;
+    loyaltyUser: Loyalty;
+    date: string;
+  }[]
+): void {
+  if (!count) {
+    count++;
+    const topTwo = getTopTwoReviews(array);
+    for (let i = 0; i < topTwo.length; i++) {
+      const card = document.createElement("div");
+      card.classList.add("review-card");
+      card.innerHTML = topTwo[i].stars + " stars from " + topTwo[i].name;
+      reviewContainer.appendChild(card);
+    }
+    container.removeChild(button);
+  }
+}
+
+button.addEventListener("click", () => addReviews(reviews));
+
+let currentLocation: [string, string, number] = ["London", "11.03", 17];
+footer.innerHTML =
+  currentLocation[0] +
+  " " +
+  currentLocation[1] +
+  " " +
+  currentLocation[2] +
+  "°";

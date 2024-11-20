@@ -31,10 +31,6 @@ function add(firstValue: number, secondValue: number): number {
   return firstValue + secondValue;
 }
 
-// Function Return Types + Void Types mini-challenge
-// Instead of having a long 'review total 3', can you make the line say '3 reviews', or '1 review'
-// if there is only one? Use a function to do this and assign a type to the functions return.
-
 function showReviewTotal(
   value: number,
   reviewer: string,
@@ -56,4 +52,28 @@ function makeMultiple(value: number): string {
   } else return "";
 }
 
-export { showReviewTotal, populateUser, showDetails, makeMultiple };
+// Broken code
+function getTopTwoReviews(
+  reviews: {
+    name: string;
+    stars: number;
+    loyaltyUser: Loyalty;
+    date: string;
+  }[]
+): {
+  name: string;
+  stars: number;
+  loyaltyUser: Loyalty;
+  date: string;
+}[] {
+  const sortedReviews = reviews.sort((a, b) => b.stars - a.stars);
+  return sortedReviews.slice(0, 2);
+}
+
+export {
+  showReviewTotal,
+  populateUser,
+  showDetails,
+  makeMultiple,
+  getTopTwoReviews,
+};
