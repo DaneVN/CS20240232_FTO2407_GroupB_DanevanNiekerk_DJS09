@@ -5,7 +5,6 @@ import {
   getTopTwoReviews,
 } from "../utils/utils.js";
 import { Permissions, Loyalty } from "../utils/enums.js";
-import { Price, Country } from "../utils/types.js";
 import Review, { Property } from "../utils/interfaces.js";
 
 const propertyContainer = document.querySelector(
@@ -64,7 +63,7 @@ const you = {
 
 const properties: Property[] = [
   {
-    image: "images/malaysin-property.jpg",
+    image: "../images/malaysian-hotel.jpeg",
     title: "Malia Hotel",
     pricePerNight: 35,
     location: {
@@ -77,7 +76,7 @@ const properties: Property[] = [
     isAvailable: false,
   },
   {
-    image: "images/colombia-property.jpg",
+    image: "../images/colombia-property.jpg",
     title: "Colombian Shack",
     pricePerNight: 48,
     location: {
@@ -90,7 +89,7 @@ const properties: Property[] = [
     isAvailable: true,
   },
   {
-    image: "images/poland-property.jpg",
+    image: "../images/poland-property.jpg",
     title: "Polish Cottage",
     pricePerNight: 30,
     location: {
@@ -103,7 +102,7 @@ const properties: Property[] = [
     isAvailable: false,
   },
   {
-    image: "images/london-property.jpg",
+    image: "../images/london-property.jpg",
     title: "London Flat",
     pricePerNight: 25,
     location: {
@@ -172,7 +171,7 @@ class MainProperty {
 }
 
 let yourMainProperty = new MainProperty(
-  "images/italian-property.jpg",
+  "../images/italian-property.jpg",
   "Italian House",
   [
     {
