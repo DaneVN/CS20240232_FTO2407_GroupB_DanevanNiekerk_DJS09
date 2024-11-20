@@ -6,7 +6,7 @@ import {
 } from "../utils/utils.js";
 import { Permissions, Loyalty } from "../utils/enums.js";
 import { Price, Country } from "../utils/types.js";
-import Review from "../utils/interfaces.js";
+import Review, { Property } from "../utils/interfaces.js";
 
 const propertyContainer = document.querySelector(
   ".properties"
@@ -52,19 +52,7 @@ const you = {
 };
 
 //Properties
-const properties: {
-  image: string;
-  title: string;
-  pricePerNight: Price;
-  location: {
-    firstAddressLine: string;
-    cityOrTown: string;
-    postcode: number;
-    country: Country;
-  };
-  contact: [number, string];
-  isAvailable: boolean;
-}[] = [
+const properties: Property[] = [
   {
     image: "images/colombia-property.jpg",
     title: "Colombian Shack",
@@ -148,21 +136,38 @@ footer.innerHTML =
   currentLocation[2] +
   "°";
 
-// Classes
-// As with other JavaScript language features, TypeScript adds type
-// annotations and other syntax to allow you to express relationships
-// between classes and other types.
-// 1. Add a Class that will let us create a main image, it should allow us to
-// store the reviews.
+// Wrapping up our Dashboard
+// 1. Create All the other interfaces you think are needed for this board
+// 2. Using the Class, visually show the main Image above the review button.
 
 //Classes
 class MainProperty {
   src: string;
   title: string;
   reviews: Review[];
-  constructor(src, title, reviews) {
+  constructor(src: string, title: string, reviews: Review[]) {
     this.src = src;
     this.title = title;
     this.reviews = reviews;
   }
 }
+
+let yourMainProperty = new MainProperty(
+  "images/italian-property.jpg",
+  "Italian House",
+  [
+    {
+      name: "Olive",
+      stars: 5,
+      loyaltyUser: Loyalty.GOLD_USER,
+      date: "12-04-2021",
+    },
+  ]
+);
+
+const mainImageContainer = document.querySelector(
+  ".main-image"
+) as HTMLDivElement;
+const image = document.createElement("img") as HTMLImageElement;
+image.setAttribute("src", yourMainProperty.src);
+mainImageContainer.appendChild(image);
