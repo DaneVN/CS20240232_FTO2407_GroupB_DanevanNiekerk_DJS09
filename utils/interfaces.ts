@@ -9,7 +9,7 @@ interface Review {
   date: string;
 }
 
-export interface Property {
+interface Property {
   image: string;
   title: string;
   pricePerNight: Price;
@@ -23,4 +23,4 @@ export interface Property {
   isAvailable: boolean;
 }
 
-export default Review;
+export { Review, Property };

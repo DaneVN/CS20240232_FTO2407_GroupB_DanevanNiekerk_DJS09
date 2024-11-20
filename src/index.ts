@@ -5,7 +5,8 @@ import {
   getTopTwoReviews,
 } from "../utils/utils.js";
 import { Permissions, Loyalty } from "../utils/enums.js";
-import Review, { Property } from "../utils/interfaces.js";
+import { Review, Property } from "../utils/interfaces.js";
+import MainProperty from "../utils/classes.js";
 
 const propertyContainer = document.querySelector(
   ".properties"
@@ -157,18 +158,6 @@ footer.innerHTML =
   " " +
   currentLocation[2] +
   "°";
-
-//Classes
-class MainProperty {
-  src: string;
-  title: string;
-  reviews: Review[];
-  constructor(src: string, title: string, reviews: Review[]) {
-    this.src = src;
-    this.title = title;
-    this.reviews = reviews;
-  }
-}
 
 let yourMainProperty = new MainProperty(
   "../images/italian-property.jpg",
